@@ -1,0 +1,36 @@
+<body>
+    <img id="fotobox" width="400px" height="400px">
+    <p>skifte billede hver 6 sek</p>
+
+</body>
+<script>
+    var i = 0; // vores tæller array
+    var images = [] // array
+    var timer = 6000; // tid skifte foto
+
+    // foto rækkefølge 
+    images[0] = document.getElementById("fotobox").src = "download-1.jpg"
+
+    images[1] = document.getElementById("fotobox").src = "download.jpg"
+
+    images[2] = document.getElementById("fotobox").src = "⻈-order.gif"
+
+    function changeImg() {
+        document.getElementById("fotobox").src = images[i];
+
+        if (i < images.length - 1) {
+            i++;
+        } else {
+            // genstart vores arrey til O
+            i = 0;
+        }
+
+        // gør at vores function bliver aktiveret ved vores timer
+        setTimeout("changeImg()", timer);
+    }
+
+    // gør alle html færdig hentet før vores scipt køre
+    window.onload = changeImg;
+</script>
+
+</html>
